@@ -1,0 +1,139 @@
+﻿@model DoAnTotNghiep.Models.EntityModels.Discuss
+
+@{
+    ViewData["Title"] = "Câu hỏi thảo luận";
+}
+
+<div class="container">
+    <h3>Chủ đề thảo luận trong diễn đàn</h3>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="post-content">
+                <div class="post-container">
+                    <div class="post-detail">
+                        <div class="user-info">
+                            <h5><a href="timeline.html" class="profile-link">@Model.Account.Email</a> <span class="following">đặt câu hỏi vào @Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</span></h5>
+                        </div>
+                        <div class="line-divider"></div>
+                        <div class="post-text">
+                            @Html.Raw(Model.Content)
+                        </div>
+                        <div class="like-section">
+                            <button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up"></i> </button>
+                        </div>
+                        <div class="comment-form">
+                            <h4>Bình luận</h4>
+                            <div class="row" id="Comment-list"></div>
+                            <form class="form-contact comment_form" id="commentForm">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control w-100" name="content" id="content" cols="30" rows="9"
+                                                      placeholder="Bình luận của bạn"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="button button-contactForm btn_1 boxed-btn">Bình luận</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card-body text-center">
+                <p class="text-dark font-weight-medium mb-0 mr-2">Mã QR Code:</p>
+                <div class="d-inline-flex">
+                    <img id="qrcode" src="" alt="QR Code">
+                </div>
+                <p class="text-dark font-weight-medium mb-0 mr-2">Chia sẻ với:</p>
+                <div class="d-inline-flex">
+                    <button class="genric-btn primary small" onclick="shareOnFacebook()">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    |
+                    <button class="genric-btn primary small" onclick="shareOnTwitter()">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Hàm để hiển thị bình luận
+            function getComments() {
+                $.ajax({
+                    url: 'https://localhost:7235/vie/Home/GetCommentsForDiscuss?discussId=@Model.DiscussID',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        displayComments(data);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+
+            // Hàm để hiển thị danh sách bình luận
+            function displayComments(comments) {
+                var commentListHtml = '<ul class="comment-list">';
+
+                $.each(comments, function (index, comment) {
+                    commentListHtml += '<li>';
+                    commentListHtml += '<div class="comment-header">';
+                    commentListHtml += '<span class="user-name" style="color: blue;">' + comment.userName + '</span>';
+                    commentListHtml += '<span class="created-at"> Đã bình luận vào: ' + comment.createdAt + '</span>';
+                    commentListHtml += '</div>';
+                    commentListHtml += '<div class="comment-content">';
+                    commentListHtml += '<p>' + comment.content + '</p>';
+                    commentListHtml += '</div>';
+                    commentListHtml += '</li>';
+                });
+
+                commentListHtml += '</ul>';
+                $('#Comment-list').html(commentListHtml);
+            }
+
+            // Gọi hàm để hiển thị bình luận khi trang được tải
+            getComments();
+
+            // Xử lý sự kiện submit form bình luận
+            $('#commentForm').submit(function (event) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của form
+                var formData = {
+                    discussId: '@Model.DiscussID', // Lấy discussId từ Model
+                    content: $('#content').val() // Lấy nội dung bình luận từ textarea
+                };
+                $.ajax({
+                    url: 'https://localhost:7235/vie/Forum/AddCommentAndAccount',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData), 
+                    success: function (response) {
+                        if (response.success) {
+                            // Nếu đăng bình luận thành công, cập nhật giao diện hiển thị bình luận mới
+                            getComments();
+                            // Xóa nội dung của textarea sau khi đã đăng bình luận thành công
+                            $('#content').val()
+                        } else {
+                            // Xử lý lỗi nếu có
+                            console.log(response.error);
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+    </script>
+}

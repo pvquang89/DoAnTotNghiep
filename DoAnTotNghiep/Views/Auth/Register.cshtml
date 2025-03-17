@@ -1,0 +1,209 @@
+﻿@model DoAnTotNghiep.Models.DTO.RegisterViewModel
+@addTagHelper *, DNTCaptcha.Core
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+<!-- Section: Design Block -->
+<section class="">
+    <!-- Jumbotron -->
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+        <div class="container">
+            <div class="row gx-lg-5 align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="my-5 display-3 fw-bold ls-tight">
+                        Trao cơ hội <br />
+                        <span class="text-primary">tiếp nối ước mơ</span>
+                    </h1>
+                    <p style="color: hsl(217, 10%, 50.8%)">
+                        Tìm việc làm nhanh 24h, việc làm mới nhất trên toàn quốc.
+                        Nền tảng kết nối doanh nghiệp và các ứng viên tiềm năng.
+                    </p>
+                </div>
+
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="card">
+                        <div class="card-body py-5 px-md-5">
+                            <form asp-action="Register" asp-controller="Auth" method="post">
+                                <!-- Name input -->
+                                <div class="form-outline mb-4">
+                                    <input asp-for="Name" id="name" placeholder="Tên tài khoản" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                    <div id="nameError" class="text-danger"></div>
+                                </div>
+
+                                <!-- Email input -->
+                                <div class="form-outline mb-4">
+                                    <input asp-for="Email" id="email" placeholder="Địa chỉ Email" class="form-control" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+
+                                <!-- Password input -->
+                                <div class="form-outline mb-4">
+                                    <input asp-for="Password" id="password" type="password" placeholder="Mật khẩu" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                    <div id="passwordError" class="text-danger"></div>
+                                </div>
+
+                                <!-- Password Confirm input -->
+                                <div class="form-outline mb-4">
+                                    <input asp-for="ConfirmPassword" id="confirmPassword" type="password" placeholder="Xác nhận mật khẩu" class="form-control" />
+                                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                                    <div id="confirmPasswordError" class="text-danger"></div>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <!-- Account Type selection -->
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input type="radio" asp-for="AccountRole" value="4" checked>
+                                            <label class="form-check-label">
+                                                Tài khoản cá nhân
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-check">
+                                            <input type="radio" asp-for="AccountRole" value="2">
+                                            <label class="form-check-label">
+                                                Tài khoản doanh nghiệp
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-outline mb-4">
+                                        <dnt-captcha asp-captcha-generator-max="99999"
+                                                     asp-captcha-generator-min="11111"
+                                                     asp-captcha-generator-language="English"
+                                                     asp-captcha-generator-display-mode="ShowDigits"
+                                                     asp-fore-color="#333333"
+                                                     asp-back-color="#ccc"
+                                                     asp-font-name="Tahoma"
+                                                     asp-font-size="50"
+                                                 asp-refresh-button-class="fa-solid fa-business-time"
+                                         asp-use-relative-urls="true"
+                                         asp-placeholder="Mã Captcha"
+                                                 asp-text-box-class="form-control"
+                                         asp-validation-message-class="text-danger"
+                                         asp-use-noise="false"/>
+                                </div>
+
+                                <!-- Button trigger modal -->
+                                <button type="button" id="submitButton" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">
+                                    Đăng Ký Ngay
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Xác nhận đăng ký</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="modal-body">
+                                                            <p class="text-left">
+                                                                Bằng cách đăng ký để trở thành một thành viên trong cộng đồng Job Finder,
+                                                                bạn đồng ý rằng bạn sẽ tuân thủ các quy định và điều kiện của chúng tôi.
+                                                                Cũng như chính phủ về <a class="genric-btn link-border circle" href="https://thuvienphapluat.vn/van-ban/Lao-dong-Tien-luong/Nghi-dinh-03-2014-ND-CP-huong-dan-Bo-luat-lao-dong-ve-viec-lam-219754.aspx">Nghị định số 03/2014/NĐ-CP</a>
+                                                                Hãy chắc rằng bạn đã đọc và đáp ứng được tiêu chuẩn của cộng đồng
+                                                                <a class="genric-btn link-border circle" asp-controller="home" asp-action="Policy">Tại Đây</a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary btn-block mb-4">
+                                                    Đăng Ký
+                                                </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <p style="color: red">@ViewBag.thongbao</p>
+                            </form>
+                            <div class="text-center">
+                                <p class="mb-2">Xác thực tài khoản: <a asp-controller="Auth" asp-action="ConfirmAccount" style="color: red;">Xác thực</a></p>
+                                <p class="mb-2">Đã có tài khoản: <a asp-controller="Auth" asp-action="Login" style="color: red;">Đăng nhập</a></p>
+                                <p class="mb-0"><a asp-controller="Auth" asp-action="ForgotPass" style="color: red;">Quên mật khẩu?</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var submitButton = document.getElementById("submitButton");
+            submitButton.disabled = true; // Vô hiệu hóa nút submit khi tải trang
+
+            var nameInput = document.getElementById("name");
+            var passwordInput = document.getElementById("password");
+            var confirmPasswordInput = document.getElementById("confirmPassword");
+
+            nameInput.addEventListener("input", validateName);
+            passwordInput.addEventListener("input", validatePassword);
+            confirmPasswordInput.addEventListener("input", validateConfirmPassword);
+
+            function validateName() {
+                var name = nameInput.value;
+                var nameError = document.getElementById("nameError");
+
+                // Kiểm tra độ dài tên người dùng
+                if (name.length < 5) {
+                    nameError.textContent = "Tên phải có tối thiểu 5 ký tự.";
+                    submitButton.disabled = true; // Vô hiệu hóa nút submit nếu tên không hợp lệ
+                } else {
+                    nameError.textContent = ""; // Xóa thông báo lỗi nếu hợp lệ
+                    validateForm(); // Kiểm tra tất cả các trường khi tên hợp lệ
+                }
+            }
+
+            function validatePassword() {
+                var password = passwordInput.value;
+                var passwordError = document.getElementById("passwordError");
+
+                // Kiểm tra độ dài mật khẩu
+                if (password.length < 6) {
+                    passwordError.textContent = "Mật khẩu phải có ít nhất 6 ký tự.";
+                } else {
+                    passwordError.textContent = ""; // Xóa thông báo lỗi nếu hợp lệ
+                    validateForm(); // Kiểm tra tất cả các trường khi mật khẩu hợp lệ
+                }
+            }
+
+            function validateConfirmPassword() {
+                var confirmPassword = confirmPasswordInput.value;
+                var confirmPasswordError = document.getElementById("confirmPasswordError");
+
+                // Kiểm tra mật khẩu nhập lại có trùng khớp không
+                if (confirmPassword !== passwordInput.value) {
+                    confirmPasswordError.textContent = "Mật khẩu nhập lại không trùng khớp.";
+                } else {
+                    confirmPasswordError.textContent = ""; // Xóa thông báo lỗi nếu hợp lệ
+                    validateForm(); // Kiểm tra tất cả các trường khi mật khẩu nhập lại hợp lệ
+                }
+            }
+
+            function validateForm() {
+                // Kích hoạt nút submit chỉ khi tất cả các điều kiện đều được thỏa mãn
+                if (nameInput.checkValidity() && passwordInput.checkValidity() && confirmPasswordInput.checkValidity() && confirmPasswordInput.value === passwordInput.value) {
+                    submitButton.disabled = false; // Kích hoạt nút submit nếu tất cả điều kiện hợp lệ
+                } else {
+                    submitButton.disabled = true; // Vô hiệu hóa nút submit nếu có ít nhất một điều kiện không hợp lệ
+                }
+            }
+        });
+    </script>
+}

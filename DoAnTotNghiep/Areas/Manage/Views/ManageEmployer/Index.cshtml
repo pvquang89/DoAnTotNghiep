@@ -1,0 +1,72 @@
+﻿@model IPagedList<DoAnTotNghiep.Models.EntityModels.Employer>
+@using X.PagedList
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Quản lý Doanh Nghiệp</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tên công ty</th>
+            <th>Logo công ty</th>
+            <th>Địa chỉ</th>
+            <th>Trạng thái</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employer in Model)
+        {
+            <tr>
+                <td><a href="@Url.Action("Details", new { @id = employer.EmployerID })">@employer.CompanyName</a></td>
+                <td>
+                    <img src="@employer.UrlImage" alt="Logo" class="img-thumbnail" style="width: 70px; height: 70px;" />
+                </td>
+                <td>@employer.Location</td>
+                @if (employer.Account.Status == true)
+                {
+                    <td>Đang hoạt động</td>
+                    <td>
+                        <a href="@Url.Action("ToggleAccountStatus", new { @id = employer.EmployerID })" class="btn btn-danger">
+                            Khóa tài khoản
+                        </a>
+                    </td>
+                }
+                else
+                {
+                    <td>Đang bị khóa</td>
+                    <td>
+                        <a href="@Url.Action("ToggleAccountStatus", new { @id = employer.EmployerID })" class="btn btn-success">
+                            Mở lại
+                        </a>
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="pagination">
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber - 1 })" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                    <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                    </li>
+            }
+            <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber + 1 })" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+

@@ -1,0 +1,55 @@
+﻿@model DoAnTotNghiep.Models.DTO.DiscussViewModel
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card rounded">
+                <div class="card-body">
+                    <h2 class="card-title">Đặt câu hỏi trong diễn đàn</h2>
+
+                    @using (Html.BeginForm("CreateDiscuss", "Candidates", FormMethod.Post, new { @class = "needs-validation", novalidate = "true" }))
+                    {
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            <label for="Title">Tiêu đề thảo luận</label>
+                            @Html.TextBoxFor(model => model.Title, new { @class = "form-control", required = "required" })
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    @Html.DropDownListFor(model => model.Type, new List<SelectListItem>
+                                {
+                                new SelectListItem { Value = "Câu hỏi thảo luận", Text = "Câu hỏi thảo luận" },
+                                new SelectListItem { Value = "Hướng dẫn", Text = "Hướng dẫn" },
+                                }, "---- Chọn Chủ Đề Chính Cho Bài Thảo Luận ----", new { @class = "form-control", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group pt-10">
+                            <label for="editor1">Nội dung</label>
+                            <textarea id="editor1" asp-for="Content" class="form-control"></textarea>
+                            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Tạo mới</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+        <script>
+        CKEDITOR.replace('Content');
+        </script>
+}

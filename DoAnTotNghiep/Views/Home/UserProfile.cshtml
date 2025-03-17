@@ -1,0 +1,90 @@
+﻿@model DoAnTotNghiep.Models.EntityModels.Candidate
+
+@{
+    ViewData["Title"] = "Hồ Sơ Cá Nhân";
+}
+<section style="background-color: #eee;">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <img src="@Model.UrlImage" alt="avatar"
+                             class="rounded-circle img-fluid" style="width: 150px;">
+                        <h5 class="my-3">@Model.Name</h5>
+                        <p class="text-muted mb-1">@Model.Industry</p>
+                        <p class="text-muted mb-4">@Model.DateOfBirth</p>
+                    </div>
+                </div>
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        <p class="text-dark font-weight-medium mb-0 mr-2">Mã QR Code:</p>
+                        <div class="d-inline-flex">
+                            <img id="qrcode" src="" alt="QR Code">
+                        </div>
+                        <p class="text-dark font-weight-medium mb-0 mr-2">Chia sẻ với:</p>
+                <div class="d-inline-flex">
+                            <button class="genric-btn primary small" onclick="shareOnFacebook()">
+                        <i class="fab fa-facebook-f"></i>
+                    </button>
+                    |
+                    <button class="genric-btn primary small" onclick="shareOnTwitter()">
+                        <i class="fab fa-twitter"></i>
+                    </button>
+                </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Địa chỉ Email</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">ABC@gmail.com</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Kinh nghiệm</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Model.Experience</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Học vấn: </p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">@Model.EducationLevel</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Số điện thoại</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">+ 84 @Model.PhoneNumber</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Mô tả:</p>
+                            </div>
+                            <div class="col-sm-9">
+                                @Html.Raw(Model.Descrpitons)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

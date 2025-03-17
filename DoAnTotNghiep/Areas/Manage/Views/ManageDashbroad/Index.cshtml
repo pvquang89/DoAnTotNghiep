@@ -1,0 +1,368 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Manage/Views/Shared/_AdminLayout.cshtml";
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    @addTagHelper *, AuthoringTagHelpers
+}
+<div class="row">
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Số lượng tin tuyển dụng
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.Job</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Số lượng bài viết
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.Disscus</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Số lượng ứng viên
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.Cadidates</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Số lượng nhà tuyển dụng
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.Employer</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Tỷ lệ tuyển dụng thành công
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.SuccessRate %</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                            Tổng doanh thu
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.revenue</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Các bài khảo sát
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.Survey</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Phản hồi - góp ý
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.Contact</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Báo Cáo Thống kê</h1>
+    <!-- Content Row -->
+    <div class="row">
+
+        <div class="col-xl-8 col-lg-7">
+
+            <!-- Area Chart -->
+            <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Thống kê doanh thu</h6>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <select class="form-control" id="yearSelect">
+                                    <option value="@ViewBag.CurrentYear">Năm: @ViewBag.CurrentYear</option>
+                                    <option value="2023">Năm: 2023</option>
+                                    <option value="2022">Năm: 2022</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <a asp-action="PaymentDashbroad" class="btn btn-primary" id="viewDetailsBtn">Xem chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Donut Chart -->
+        <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Thống kê tỉ lệ tài khoản</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <div class="chart-pie pt-4">
+                        <canvas id="myPieChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="card border-primary mb-3">
+    <div class="card-header bg-primary text-white">
+        Tin tuyển dụng chờ duyệt
+    </div>
+    <div class="card-body">
+        <table id="jobTable" class="table">
+            <thead>
+                <tr>
+                    <th>Tiêu đề</th>
+                    <th>Vị trí</th>
+                    <th>Công ty</th>
+                    <th>Ảnh</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Function to create the "Duyệt" button
+            function createActionButton(jobId, actionType, buttonText) {
+                return `<button class="btn btn-${actionType}" data-job-id="${jobId}">${buttonText}</button>`;
+            }
+
+            // Function to handle the action button click
+            function handleActionButtonClick() {
+                var jobId = $(this).data('job-id');
+                var actionType = $(this).hasClass('btn-approve') ? 'approve' : 'delete';
+
+                // Call the corresponding API based on the action type
+                var apiUrl = actionType === 'approve'
+                    ? `/api/job/togglestatus/${jobId}`
+                    : `/api/job/${jobId}`;
+
+                var successCallback = function () {
+                    // Remove the row from the table on success
+                    $(`#jobTable tr[data-job-id="${jobId}"]`).remove();
+                };
+
+                $.ajax({
+                    type: actionType === 'approve' ? 'POST' : 'DELETE',
+                    url: apiUrl,
+                    success: successCallback,
+                    error: function (error) {
+                        console.log(error);
+                    }
+                });
+            }
+
+            $.ajax({
+                type: 'GET',
+                url: '/api/job',
+                success: function (data) {
+                    $.each(data, function (index, job) {
+                        var row = `
+                            <tr data-job-id="${job.jobId}">
+                                <td>${job.title}</td>
+                                <td>${job.position}</td>
+                                <td>${job.company}</td>
+                                <td><img src="${job.image}" alt="Company Image" width="50"></td>
+                                <td>
+                                    ${createActionButton(job.jobId, 'approve', 'Duyệt')}
+                                    
+                                </td>
+                            </tr>`;
+
+                        $('#jobTable tbody').append(row);
+                    });
+
+                    // Attach click event to the action buttons
+                    $('.btn-approve, .btn-delete').on('click', handleActionButtonClick);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        });
+        // chart thống kê doanh thu
+        $(document).ready(function () {
+            var currentChart = null; // Biến để lưu trữ biểu đồ hiện tại
+
+            // Hàm để cập nhật biểu đồ với năm được chọn
+            function updateChart(selectedYear) {
+                if (currentChart) {
+                    currentChart.destroy(); // Hủy biểu đồ hiện tại nếu tồn tại
+                }
+
+                $.ajax({
+                    url: '@Url.Action("GetRevenueData", "ManageDashbroad")',
+                    type: 'GET',
+                    data: { selectedYear: selectedYear },
+                    success: function (data) {
+                        var dates = [];
+                        var amounts = [];
+                        data.forEach(function (item) {
+                            dates.push(item.date);
+                            amounts.push(item.amount);
+                        });
+
+                        var ctx = document.getElementById('revenueChart').getContext('2d');
+                        currentChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                labels: dates,
+                                datasets: [{
+                                    label: 'Doanh Thu',
+                                    data: amounts,
+                                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    xAxes: [{
+                                        type: 'category',
+                                        labels: dates
+                                    }],
+                                    yAxes: [{
+                                        ticks: {
+                                            beginAtZero: true
+                                        }
+                                    }]
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+
+            // Sự kiện để cập nhật biểu đồ khi người dùng thay đổi năm
+            $('#yearSelect').change(function () {
+                var selectedYear = $(this).val();
+                updateChart(selectedYear);
+            });
+
+            // Lấy năm hiện tại và cập nhật biểu đồ ban đầu
+            var currentYear = (new Date()).getFullYear();
+            $('#yearSelect').val(currentYear);
+            updateChart(currentYear);
+        });
+    </script>
+    <script src="~/js/manage/chart/chart-pie-demo.js"></script>
+
+}

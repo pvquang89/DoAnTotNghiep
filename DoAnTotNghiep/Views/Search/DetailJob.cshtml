@@ -1,0 +1,264 @@
+﻿@model DoAnTotNghiep.Models.EntityModels.JobPosting
+@using DoAnTotNghiep.Models.EntityModels
+@using Microsoft.EntityFrameworkCore
+@inject DataContext _dbContext
+
+@{
+    ViewData["Title"] = "Chi tiết công việc";
+    var SameJob = (List<DoAnTotNghiep.Models.EntityModels.JobPosting>)ViewBag.SameJob;
+}
+
+<!-- job post company Start -->
+<div class="job-post-company pt-120 pb-120">
+    <div class="container">
+        <div class="row justify-content-between">
+            <!-- Left Content -->
+            <div class="col-xl-7 col-lg-8">
+                <!-- job single -->
+                <div class="single-job-items mb-50">
+                    <div class="job-items">
+                        <div class="company-img company-img-details">
+                            <a href="@Url.Action("Conpany", "Home", new { @id = Model.EmployerID })"><img src="@Model.Employer.UrlImage"></a>
+                        </div>
+                        <div class="job-tittle">
+                            <a>
+                                <h4>@Model.Title</h4>
+                            </a>
+                            <ul>
+                                <li>@Model.Employer.CompanyName</li>
+                                <li><i class="fas fa-map-marker-alt"></i>@Model.Location</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- job single End -->
+
+                <div class="job-post-details">
+                    <div class="post-details1 mb-50">
+                        <!-- Small Section Tittle -->
+                        <div class="small-section-tittle">
+                            <h4>Mô tả công việc</h4>
+                        </div>
+                        <p class="lead card-text"> @Html.Raw(Model.Description)</p>
+                    </div>
+                    <div class="post-details2  mb-50">
+                        <!-- Small Section Tittle -->
+                        <div class="small-section-tittle">
+                            <h4>Yêu cầu kỹ năng</h4>
+                        </div>
+                        <p class="lead card-text"> @Html.Raw(Model.Requirements)</p>
+                    </div>
+                    <div class="post-details2  mb-50">
+                        <!-- Small Section Tittle -->
+                        <div class="small-section-tittle">
+                            <h4>Chế độ đãi ngộ</h4>
+                        </div>
+                        <p class="lead card-text"> @Html.Raw(Model.benefits)</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Right Content -->
+            <div class="col-xl-4 col-lg-4">
+                <div class="post-details3  mb-50">
+                    <!-- Small Section Tittle -->
+                    <div class="small-section-tittle">
+                        <h4>Tổng quan công việc</h4>
+                    </div>
+                    <ul>
+                        <li>Ngày đăng : <span>@Model.CreateAt</span></li>
+                        <li>Địa điểm : <span>@Model.Location</span></li>
+                        <li>Số lượng : <span>@Model.Number</span></li>
+                        <li>Vị trí : <span>@Model.position</span></li>
+                        <li>Lương :  <span>@Model.Salary VND</span></li>
+                    </ul>
+                    <div class="apply-btn2">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#RecruitmentModal">
+                            Ứng tuyển ngay
+                        </button>
+                    </div>
+                </div>
+                <div class="post-details4  mb-50">
+                    <!-- Small Section Tittle -->
+                    <div class="small-section-tittle">
+                        <h4>Công ty tuyển dụng</h4>
+                    </div>
+                    <span>@Model.Employer.CompanyName</span>
+                    <ul>
+                        <li>Lĩnh vực: <span>@Model.Employer.Industry </span></li>
+                        <li>Số lượng nhân viên : <span>@Model.Employer.CompanySize</span></li>
+                        <li>Số điện thoại: <span>@Model.Employer.PhoneNumber</span></li>
+                    </ul>
+                    <div class="d-flex pt-2">
+                        <p class="text-dark font-weight-medium mb-0 mr-2">Chia sẻ với:</p>
+                        <div class="d-inline-flex">
+                            <button class="genric-btn primary small" onclick="shareOnFacebook()">
+                                <i class="fab fa-facebook-f"></i>
+                            </button>
+                            |
+                            <button class="genric-btn primary small" onclick="shareOnTwitter()">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="small-section-tittle">
+                    <h4>Công việc tương tự</h4>
+                </div>
+            </div>
+            @foreach (var similarJob in SameJob)
+            {
+                <div class="col-md-4">
+                    <div class="single-job-items mb-30">
+                        <div class="job-items">
+                            <div class="company-img">
+                                <a href="@Url.Action("Conpany", "Home", new { @id = similarJob.EmployerID })"><img src="@similarJob.Employer.UrlImage" alt=""></a>
+                            </div>
+                            <div class="job-tittle">
+                                <a href="@Url.Action("DetailJob", "Search", new { @id = similarJob.JobPostingID })">
+                                    <h4>@similarJob.Title</h4>
+                                </a>
+                                <ul>
+                                    <li>@similarJob.Employer.CompanyName</li>
+                                    <li><i class="fas fa-map-marker-alt"></i>@similarJob.Location</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="RecruitmentModal" tabindex="-1" role="dialog" aria-labelledby="RecruitmentModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="RecruitmentModalTitle">Ứng tuyển vị trí</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+  
+            <div class="modal-body">
+                <form>
+                    @{
+                        if (@Context.Session.GetString("CandidateName") == null)
+                        {
+                            <div class="form-group">
+                                <input type="hidden" id="jobPostingID" value="@Model.JobPostingID">
+                                <label for="userName">Tên người dùng:</label>
+                                <input type="text" class="form-control" id="userName" placeholder="Nhập tên của bạn">
+                            </div>
+                            <div class="form-group">
+                                <label for="userEmail">Email:</label>
+                                <input type="email" class="form-control" id="userEmail" placeholder="Nhập địa chỉ email của bạn">
+                            </div>
+                            <div class="form-group">
+                                <label for="userPhone">Số điện thoại:</label>
+                                <input type="tel" class="form-control" id="userPhone" placeholder="Nhập số điện thoại của bạn">
+                            </div>
+                            <div class="form-group">
+                                <label for="userFile">Chọn file CV:</label>
+                                <input type="file" class="form-control-file" id="userFile">
+                            </div>
+                        }
+                        else
+                        {
+                            var candidateIdString = @Context.Session.GetString("Accountid");
+                            Guid candidateId;
+                            if (Guid.TryParse(candidateIdString, out candidateId))
+                            {
+                                var candidate = _dbContext.Candidates.Include(c => c.Account).FirstOrDefault(c => c.CandidateID == candidateId);
+                                if (candidate != null)
+                                {
+                                    <div class="form-group">
+                                        <input type="hidden" id="jobPostingID" value="@Model.JobPostingID">
+                                        <label for="userName">Tên người dùng:</label>
+                                        <input type="text" class="form-control" id="userName" value="@candidate.Name" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userEmail">Email:</label>
+                                        <input type="email" class="form-control" id="userEmail" value="@candidate.Account.Email" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userPhone">Số điện thoại:</label>
+                                        <input type="tel" class="form-control" id="userPhone" value="@candidate.PhoneNumber" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userFile">Chọn file CV:</label>
+                                        <input type="file" class="form-control-file" id="userFile">
+                                    </div>
+                                }
+                            }
+                        }
+                    }
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="genric-btn danger radius" data-dismiss="modal">Hủy</button>
+                <button type="button" class="genric-btn success radius" id="btnApply">Ứng tuyển ngay</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Khối script -->
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            // Xử lý khi người dùng nhấn nút "Ứng tuyển ngay"
+            $("#btnApply").click(function () {
+                var jobPostingID = $("#jobPostingID").val();
+                var userName = $("#userName").val();
+                var userEmail = $("#userEmail").val();
+                var userPhone = $("#userPhone").val();
+                var userFile = $("#userFile")[0].files[0];
+
+                // Kiểm tra xem các trường thông tin đã được điền đầy đủ chưa
+                if (!jobPostingID || !userName || !userEmail || !userPhone || !userFile) {
+                    alert("Vui lòng điền đầy đủ thông tin.");
+                    return; // Ngừng xử lý nếu có trường bị thiếu
+                }
+
+                // Tạo FormData để chứa dữ liệu form
+                var formData = new FormData();
+                formData.append("JobPostingID", jobPostingID);
+                formData.append("Name", userName);
+                formData.append("Email", userEmail);
+                formData.append("PhoneNumber", userPhone);
+                formData.append("CVFile", userFile);
+
+                // Sử dụng Ajax để gửi dữ liệu form đến action ApplyForJob trong controller
+                $.ajax({
+                    type: "POST",
+                    url: "/vie/Home/ApplyForJob",
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        // Xử lý phản hồi từ server, có thể hiển thị thông báo hoặc thực hiện các hành động khác
+                        if (response.success) {
+                            alert(response.message);
+                            // Đóng modal sau khi ứng tuyển thành công
+                            $("#RecruitmentModal").modal("hide");
+                        } else {
+                            alert("Có lỗi xảy ra khi ứng tuyển.");
+                        }
+                    },
+                    error: function () {
+                        alert("Có lỗi xảy ra khi gửi yêu cầu.");
+                    }
+                });
+            });
+        });
+    </script>
+}

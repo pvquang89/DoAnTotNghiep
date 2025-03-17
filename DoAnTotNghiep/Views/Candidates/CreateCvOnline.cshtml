@@ -1,0 +1,126 @@
+﻿@{
+    ViewData["Title"] = "Tạo CV trực tiếp";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="input-section">
+                <form id="cvForm" action="@Url.Action("DownloadPDF", "Candidates")" method="post">
+                    <div class="form-group">
+                        <label for="fullName">Họ và tên:</label>
+                        <input type="text" class="form-control" id="fullName" name="fullName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="personalPage">Email liên hệ:</label>
+                        <input type="text" class="form-control" id="personalPage" name="personalPage" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Mô tả:</label>
+                        <textarea class="form-control" id="description" name="description" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="education">Học vấn:</label>
+                        <input type="text" class="form-control" id="education" name="education" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="profession">Vị trí ứng tuyển:</label>
+                        <input type="text" class="form-control" id="profession" name="profession" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skill">Kỹ năng:</label>
+                        <textarea class="form-control" id="skill" name="skill" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="personalProjects">Kinh nghiệm làm việc:</label>
+                        <textarea class="form-control" id="personalProjects" name="personalProjects" required></textarea>
+                    </div>
+                    <button type="submit" class="genric-btn primary">Tải xuống</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="cv-section" id="cvSection">
+                <div class="card bg-white shadow-lg">
+                    <article class="resume-wrapper text-center position-relative">
+                        <div class="resume-wrapper-inner mx-auto text-start">
+                            <header class="resume-header pt-4 pt-md-0">
+                                <div class="row">
+                                    <div class="col-block col-md-auto resume-picture-holder text-center text-md-start">
+                                    </div>
+                                    <div class="col">
+                                        <div class="row p-4 justify-content-center justify-content-md-between">
+                                            <div class="primary-info col-auto">
+                                                <h4 class="name mt-0 mb-1 text-black text-uppercase text-uppercase" id="cvName">Họ và tên</h4>
+                                                <div class="title mb-3" id="cvPosition">Vị trí ứng tuyển</div>
+                                                <ul class="list-unstyled">
+                                                    <li class="mb-2" id="cvEmail">Email liên hệ</li>
+                                                </ul>
+                                            </div><!--//primary-info-->
+                                        </div><!--//row-->
+                                    </div><!--//col-->
+                                </div><!--//row-->
+                            </header>
+                            <div class="resume-body p-2">
+                                <section class="resume-section summary-section mb-2">
+                                    <div class="resume-section-content">
+                                        <h5 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Mô Tả</h5>
+                                        <p id="cvDescription">Mô tả</p>
+                                    </div>
+                                </section>
+                                <section class="resume-section summary-section mb-2">
+                                    <h5 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Học vấn</h5>
+                                    <div class="resume-section-content">
+                                        <p id="cvEducation">Học vấn</p>
+                                    </div>
+                                </section>
+                                <section class="resume-section summary-section mb-2">
+                                    <h5 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Kỹ năng</h5>
+                                    <div class="resume-section-content">
+                                        <p id="cvSkill">Kỹ năng</p>
+                                    </div>
+                                </section>
+                                <section class="resume-section summary-section mb-2">
+                                    <h5 class="resume-section-title text-uppercase font-weight-bold pb-3 mb-3">Kinh nghiệm làm việc</h5>
+                                    <div class="resume-section-content">
+                                        <p id="cvExperience">Kinh nghiệm làm việc</p>
+                                    </div>
+                                </section>
+                            </div><!--//resume-body-->
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('cvForm').addEventListener('input', updateCV);
+
+        function updateCV() {
+            const fullName = document.getElementById('fullName').value;
+            const personalPage = document.getElementById('personalPage').value;
+            const description = document.getElementById('description').value;
+            const education = document.getElementById('education').value;
+            const profession = document.getElementById('profession').value;
+            const skill = document.getElementById('skill').value;
+            const personalProjects = document.getElementById('personalProjects').value;
+
+            document.getElementById('cvName').innerText = fullName;
+            document.getElementById('cvPosition').innerText = profession;
+            document.getElementById('cvEmail').innerText = 'Email liên hệ: ' + personalPage;
+            document.getElementById('cvDescription').innerText = description;
+            document.getElementById('cvEducation').innerText = education;
+            document.getElementById('cvSkill').innerText = skill;
+            document.getElementById('cvExperience').innerText = 'Kinh nghiệm làm việc: ' + personalProjects;
+        }
+    </script>
+}

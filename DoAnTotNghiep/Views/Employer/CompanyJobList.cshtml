@@ -1,0 +1,134 @@
+﻿@model IEnumerable<DoAnTotNghiep.Models.ResponseDTO.JobPostingResponseDto>
+
+@{
+    ViewData["Title"] = "Danh sách tuyển dụng của tôi";
+    var UnApproved = (List<DoAnTotNghiep.Models.EntityModels.JobPosting>)ViewBag.UnApproved;
+}
+<div class="card mb-4 rounded">
+    <div class="card-body">
+        <h2 class="card-title">Danh sách tuyển dụng của tôi</h2>
+        <partial name="_Message_area" />
+        <div class="card-deck">
+            @if (Model.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Tiêu đề</th>
+                            <th>Địa điểm</th>
+                            <th>Lương</th>
+                            <th>DS Ứng tuyển</th>
+                            <th>Thao tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var jobPosting in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a href="@Url.Action("Company", "Home", new { @id = jobPosting.CompanyId })">
+                                        <img src="@jobPosting.Image" alt="@jobPosting.Title" style="max-width: 100px; max-height: 100px;">
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="@Url.Action("DetailJob", "Search", new { @id = jobPosting.JobId })">
+                                        <h6>@jobPosting.Title</h6>
+                                    </a>
+                                </td>
+                                <td><i class="fas fa-map-marker-alt"></i> @jobPosting.Location</td>
+                                <td>@jobPosting.Salary VND</td>
+                                <td>
+                                    <a class="genric-btn info radius" href="@Url.Action("ApplyList", "Employer", new { @JobId = jobPosting.JobId })">DS Ứng tuyển</a>
+                                </td>
+                                <td style="width:250px">
+                                    <div class="d-flex">
+                                        <form asp-action="Delete" asp-route-id="@jobPosting.JobId" method="post" class="mr-2">
+                                            <input type="submit" value="Xóa" class="genric-btn danger radius" onclick="return confirm('Bạn có muốn xóa tin này không?');" />
+                                        </form>
+                                       @*  <a asp-action="EditJob" asp-route-id="@jobPosting.JobId" class="genric-btn success radius">Sửa</a> *@
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Bạn chưa đăng tin tuyển dụng nào.</p>
+            }
+        </div>
+        <h2 class="card-title">Tin đang đợi duyệt</h2>
+        <div class="card-deck">
+            @if (UnApproved.Any())
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Ảnh</th>
+                            <th>Vị trí tuyển dụng</th>
+                            <th>Địa điểm</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var similarJob in UnApproved)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="company-img">
+                                        <img src="@similarJob.Employer.UrlImage" alt="">
+                                    </div>
+                                </td>
+                                <td>
+                                        <h4>@similarJob.Title</h4>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li><i class="fas fa-map-marker-alt"></i>@similarJob.Location</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>Chưa có tin nào đang chờ duyệt.</p>
+            }
+        </div>
+        <a class="btn btn-success" asp-controller="Employer" asp-action="CreateJobPosting">Đăng tin tuyển dụng</a>
+        <!-- Button trigger modal -->
+     @*    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Đăng bằng file Excel
+        </button> *@
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Đăng tải danh sách tuyển dụng</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form asp-action="ImportJobPostings" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="file">
+                                    Sử dụng mẫu file excel lầy <a class="genric-btn link-border radius" asp-action="DownloadExcelTemplate">Ở Đây</a> của chúng tôi và điền đầy đủ thông tin và các cột sau đó bạn có thể nhập lại ở mục chọn file
+                                    dưới đây để tiến hành thêm mới dữ liệu
+                                </label>
+                                <input type="file" name="file" class="form-control" required />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Lưu</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
