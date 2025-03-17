@@ -1,7 +1,6 @@
 # ĐỒ ÁN TỐT NGHIỆP - 2024
 
-- SVTH: Nguyễn Việt Giang - 1910A04
-- GVHD: TS. Trương Tiến Tùng (Đại học Mở Hà Nội)
+- SVTH: Phạm Văn Quang 
 
 ---
 
