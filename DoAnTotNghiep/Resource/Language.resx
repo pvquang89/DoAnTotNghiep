@@ -138,8 +138,8 @@
   <data name="Mọi thông tin về điều khoản và chính sách của chúng tôi xin vui lòng tham khảo thông qua Chat bot hoặc:" xml:space="preserve">
     <value>Mọi thông tin về điều khoản và chính sách của chúng tôi xin vui lòng tham khảo thông qua Chat bot hoặc:</value>
   </data>
-  <data name="Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : vietgiang111001@gmail.com" xml:space="preserve">
-    <value>Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : vietgiang111001@gmail.com</value>
+  <data name="Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : phamvanquang@gmail.com" xml:space="preserve">
+    <value>Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : phamvanquang@gmail.com</value>
   </data>
   <data name="Số lượng người đang truy cập:" xml:space="preserve">
     <value>Số lượng người đang truy cập:</value>
@@ -159,6 +159,9 @@
   <data name="Tại Đây" xml:space="preserve">
     <value>Tại Đây</value>
   </data>
+  <data name="Tất cả" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
   <data name="Vô Vàn Cơ Hội Đang Chờ Bạn" xml:space="preserve">
     <value>Vô Vàn Cơ Hội Đang Chờ Bạn</value>
   </data>
@@ -168,7 +171,7 @@
   <data name="Đăng nhập" xml:space="preserve">
     <value>Đăng nhập</value>
   </data>
-  <data name="Đồ Án Tốt Nghiệp 2024" xml:space="preserve">
-    <value>Đồ Án Tốt Nghiệp 2024</value>
+  <data name="Đồ Án Tốt Nghiệp 2025" xml:space="preserve">
+    <value>Đồ Án Tốt Nghiệp 2025</value>
   </data>
 </root>

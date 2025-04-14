@@ -124,11 +124,11 @@ namespace DoAnTotNghiep.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Đồ Án Tốt Nghiệp 2024.
+        ///   Looks up a localized string similar to Đồ Án Tốt Nghiệp 2025.
         /// </summary>
-        public static string Đồ_Án_Tốt_Nghiệp_2024 {
+        public static string Đồ_Án_Tốt_Nghiệp_2025 {
             get {
-                return ResourceManager.GetString("Đồ Án Tốt Nghiệp 2024", resourceCulture);
+                return ResourceManager.GetString("Đồ Án Tốt Nghiệp 2025", resourceCulture);
             }
         }
         
@@ -142,12 +142,12 @@ namespace DoAnTotNghiep.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : vietgiang111001@gmail.com.
+        ///   Looks up a localized string similar to Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : phamvanquang@gmail.com.
         /// </summary>
-        public static string Mọi_thắc_mắc_hoặc_vấn_đề_cần_giải_quyết_xin_vui_lòng_gửi_về_tại_form_liên_hệ_hoặc_thông_qua_email___vietgiang111001_gmail_com {
+        public static string Mọi_thắc_mắc_hoặc_vấn_đề_cần_giải_quyết_xin_vui_lòng_gửi_về_tại_form_liên_hệ_hoặc_thông_qua_email___phamvanquang_gmail_com {
             get {
                 return ResourceManager.GetString("Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc" +
-                        " thông qua email : vietgiang111001@gmail.com", resourceCulture);
+                        " thông qua email : phamvanquang@gmail.com", resourceCulture);
             }
         }
         
@@ -176,6 +176,15 @@ namespace DoAnTotNghiep.Resource {
         public static string Tại_Đây {
             get {
                 return ResourceManager.GetString("Tại Đây", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tất cả.
+        /// </summary>
+        public static string Tất_cả {
+            get {
+                return ResourceManager.GetString("Tất cả", resourceCulture);
             }
         }
         

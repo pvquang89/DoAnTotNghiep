@@ -65,7 +65,7 @@ namespace DoAnTotNghiep.Areas.Manage.Controllers
             IEnumerable<Contact> contactsEnumerable = await _contactRepository.GetAllAsync();
             List<Contact> contacts = contactsEnumerable.ToList();
             byte[] excelData = _excelExportService.ExportContactsToExcel(contacts);
-            return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Contacts.xlsx");
+            return File(excelData, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Coentacts.xlsx");
         }
 
     }
