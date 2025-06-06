@@ -14,6 +14,7 @@ using DoAnTotNghiep.Repository.PolicyRepo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using X.PagedList;
 
 namespace DoAnTotNghiep.Controllers
@@ -106,10 +107,10 @@ namespace DoAnTotNghiep.Controllers
         public async Task<IActionResult> Hiring(string title, string location, int? salary, string time)
         {
             var accountIdClaim = HttpContext.Session.GetString("Accountid");
-            var user = await _dataContext.Accounts
+            var user = await _dataContext.Accounts.Include(acc=>acc.Candidate)
                .FirstOrDefaultAsync(m => m.UserID.ToString() == accountIdClaim);
 
-            string recomment = null; // Mặc định recomment là null
+            string recomment = "haha"; // Mặc định recomment là null
 
             // Kiểm tra xem user và user.Candidate có null hay không trước khi gán recomment
             if (user != null && user.Candidate != null)
@@ -135,6 +136,16 @@ namespace DoAnTotNghiep.Controllers
             ViewData["TitleJob"] = $"Danh sách - {filterMessage}";
             ViewData["JobCount"] = jobPostings.Count();
 
+            if (user == null)
+            {
+                Console.WriteLine("user null");
+            }
+            else
+            {
+
+                Console.WriteLine("user not null");
+            }
+            
             return View(jobPostings);
         }
 
