@@ -61,14 +61,15 @@ namespace DoAnTotNghiep.Controllers.MvcController
 
                         HttpContext.Session.SetString("Accountid", rowuser.UserID.ToString());
                         HttpContext.Session.SetInt32("UserRole", (int)rowuser.AccountRole);
+                        //Console.WriteLine(HttpContext.Session.GetString("Accountid"));
 
                         if (rowuser.AccountRole == AccountRole.EmployerFree || rowuser.AccountRole == AccountRole.EmployerPaid)
                         {
-                            HttpContext.Session.SetString("EmployerName", model.Email);
+                            HttpContext.Session.SetString("EmployerName", model.Email.Split('@')[0]);
                         }
                         else if (rowuser.AccountRole == AccountRole.CandidateFree || rowuser.AccountRole == AccountRole.CandidatePaid)
                         {
-                            HttpContext.Session.SetString("CandidateName", model.Email);
+                            HttpContext.Session.SetString("CandidateName", model.Email.Split('@')[0]);
                         }
 
                         return RedirectToAction("Index", "Home");
@@ -128,7 +129,7 @@ namespace DoAnTotNghiep.Controllers.MvcController
                     };
 
                     _dbContext.Accounts.Add(account);
-                    string message = string.Format("Mã kích hoạt tài khoản của bạn là: {0}", account.UserID);
+                    string message = string.Format("Mã kích hoạt tài khoản của bạn là: {0}\n Mã sẽ hết hạn sau 10 phút", account.UserID);
                     await _emailServices.SendEmailAsync(model.Email, message);
                 }
                 else if(model.AccountRole == AccountRole.EmployerFree)
@@ -154,7 +155,7 @@ namespace DoAnTotNghiep.Controllers.MvcController
                     };
 
                     _dbContext.Accounts.Add(account);
-                    string message = string.Format("Mã kích hoạt tài khoản của bạn là: {0}", account.UserID);
+                    string message = string.Format("Mã kích hoạt tài khoản của bạn là: {0}\n Mã sẽ hết hạn sau 10 phút", account.UserID);
                     await _emailServices.SendEmailAsync(model.Email, message);
 
                 }
