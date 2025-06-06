@@ -18,9 +18,9 @@
                         <div class="post-text">
                             @Html.Raw(Model.Content)
                         </div>
-                        <div class="like-section">
+                        @* <div class="like-section">
                             <button class="btn btn-block btn-primary"><i class="fa fa-thumbs-up"></i> </button>
-                        </div>
+                        </div> *@
                         <div class="comment-form">
                             <h4>Bình luận</h4>
                             <div class="row" id="Comment-list"></div>
@@ -70,7 +70,7 @@
             // Hàm để hiển thị bình luận
             function getComments() {
                 $.ajax({
-                    url: 'https://localhost:7235/vie/Home/GetCommentsForDiscuss?discussId=@Model.DiscussID',
+                    url: 'http://localhost:5044/vie/Home/GetCommentsForDiscuss?discussId=@Model.DiscussID',
                     type: 'GET',
                     dataType: 'json',
                     success: function (data) {
@@ -113,7 +113,7 @@
                     content: $('#content').val() // Lấy nội dung bình luận từ textarea
                 };
                 $.ajax({
-                    url: 'https://localhost:7235/vie/Forum/AddCommentAndAccount',
+                    url: 'http://localhost:5044/vie/Forum/AddCommentAndAccount',
                     type: 'POST',
                     dataType: 'json',
                     contentType: 'application/json',
