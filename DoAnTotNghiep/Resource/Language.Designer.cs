@@ -61,11 +61,65 @@ namespace DoAnTotNghiep.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 5Tr - 10Tr.
+        /// </summary>
+        public static string _5Tr___10Tr {
+            get {
+                return ResourceManager.GetString("5Tr - 10Tr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bài viết thảo luận.
+        /// </summary>
+        public static string Bài_viết_thảo_luận {
+            get {
+                return ResourceManager.GetString("Bài viết thảo luận", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Báo cáo thống kê.
+        /// </summary>
+        public static string Báo_cáo_thống_kê {
+            get {
+                return ResourceManager.GetString("Báo cáo thống kê", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chọn Địa Điểm.
+        /// </summary>
+        public static string Chọn_Địa_Điểm {
+            get {
+                return ResourceManager.GetString("Chọn Địa Điểm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chúng Tôi Đem Lại Cơ Hội Thăng Tiến.
         /// </summary>
         public static string Chúng_Tôi_Đem_Lại_Cơ_Hội_Thăng_Tiến {
             get {
                 return ResourceManager.GetString("Chúng Tôi Đem Lại Cơ Hội Thăng Tiến", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cơ hội nghề nghiệp.
+        /// </summary>
+        public static string Cơ_hội_nghề_nghiệp {
+            get {
+                return ResourceManager.GetString("Cơ hội nghề nghiệp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đà Nẵng.
+        /// </summary>
+        public static string Đà_Nẵng {
+            get {
+                return ResourceManager.GetString("Đà Nẵng", resourceCulture);
             }
         }
         
@@ -88,6 +142,15 @@ namespace DoAnTotNghiep.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Đăng xuất.
+        /// </summary>
+        public static string Đăng_xuất {
+            get {
+                return ResourceManager.GetString("Đăng xuất", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Danh sách.
         /// </summary>
         public static string Danh_sách {
@@ -106,11 +169,38 @@ namespace DoAnTotNghiep.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Danh sách tuyển dụng.
+        /// </summary>
+        public static string Danh_sách_tuyển_dụng {
+            get {
+                return ResourceManager.GetString("Danh sách tuyển dụng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Danh sách ứng viên.
         /// </summary>
         public static string Danh_sách_ứng_viên {
             get {
                 return ResourceManager.GetString("Danh sách ứng viên", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Địa chỉ.
+        /// </summary>
+        public static string Địa_chỉ {
+            get {
+                return ResourceManager.GetString("Địa chỉ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Địa Điểm Làm Việc.
+        /// </summary>
+        public static string Địa_Điểm_Làm_Việc {
+            get {
+                return ResourceManager.GetString("Địa Điểm Làm Việc", resourceCulture);
             }
         }
         
@@ -124,11 +214,47 @@ namespace DoAnTotNghiep.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Đồ Án Tốt Nghiệp 2024.
+        ///   Looks up a localized string similar to Đồ Án Tốt Nghiệp 2025.
         /// </summary>
-        public static string Đồ_Án_Tốt_Nghiệp_2024 {
+        public static string Đồ_Án_Tốt_Nghiệp_2025 {
             get {
-                return ResourceManager.GetString("Đồ Án Tốt Nghiệp 2024", resourceCulture);
+                return ResourceManager.GetString("Đồ Án Tốt Nghiệp 2025", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Doanh nghiệp cộng tác.
+        /// </summary>
+        public static string Doanh_nghiệp_cộng_tác {
+            get {
+                return ResourceManager.GetString("Doanh nghiệp cộng tác", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đổi mật khẩu.
+        /// </summary>
+        public static string Đổi_mật_khẩu {
+            get {
+                return ResourceManager.GetString("Đổi mật khẩu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hà Nội.
+        /// </summary>
+        public static string Hà_Nội {
+            get {
+                return ResourceManager.GetString("Hà Nội", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Khảo sát.
+        /// </summary>
+        public static string Khảo_sát {
+            get {
+                return ResourceManager.GetString("Khảo sát", resourceCulture);
             }
         }
         
@@ -142,12 +268,30 @@ namespace DoAnTotNghiep.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : vietgiang111001@gmail.com.
+        ///   Looks up a localized string similar to Liên hệ với chúng tôi tại.
         /// </summary>
-        public static string Mọi_thắc_mắc_hoặc_vấn_đề_cần_giải_quyết_xin_vui_lòng_gửi_về_tại_form_liên_hệ_hoặc_thông_qua_email___vietgiang111001_gmail_com {
+        public static string Liên_hệ_với_chúng_tôi_tại {
+            get {
+                return ResourceManager.GetString("Liên hệ với chúng tôi tại", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lương cơ bản.
+        /// </summary>
+        public static string Lương_cơ_bản {
+            get {
+                return ResourceManager.GetString("Lương cơ bản", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : phamvanquang@gmail.com.
+        /// </summary>
+        public static string Mọi_thắc_mắc_hoặc_vấn_đề_cần_giải_quyết_xin_vui_lòng_gửi_về_tại_form_liên_hệ_hoặc_thông_qua_email___phamvanquang_gmail_com {
             get {
                 return ResourceManager.GetString("Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc" +
-                        " thông qua email : vietgiang111001@gmail.com", resourceCulture);
+                        " thông qua email : phamvanquang@gmail.com", resourceCulture);
             }
         }
         
@@ -180,11 +324,65 @@ namespace DoAnTotNghiep.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tất cả.
+        /// </summary>
+        public static string Tất_cả {
+            get {
+                return ResourceManager.GetString("Tất cả", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tất cả công việc.
+        /// </summary>
+        public static string Tất_cả_công_việc {
+            get {
+                return ResourceManager.GetString("Tất cả công việc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thời gian làm.
+        /// </summary>
+        public static string Thời_gian_làm {
+            get {
+                return ResourceManager.GetString("Thời gian làm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thông tin doanh nghiệp.
+        /// </summary>
+        public static string Thông_tin_doanh_nghiệp {
+            get {
+                return ResourceManager.GetString("Thông tin doanh nghiệp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tìm Kiếm.
         /// </summary>
         public static string Tìm_Kiếm {
             get {
                 return ResourceManager.GetString("Tìm Kiếm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tìm kiếm việc làm.
+        /// </summary>
+        public static string Tìm_kiếm_việc_làm {
+            get {
+                return ResourceManager.GetString("Tìm kiếm việc làm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TP. HCM.
+        /// </summary>
+        public static string TP__HCM {
+            get {
+                return ResourceManager.GetString("TP. HCM", resourceCulture);
             }
         }
         
@@ -198,11 +396,29 @@ namespace DoAnTotNghiep.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trang quản trị.
+        /// </summary>
+        public static string Trang_quản_trị {
+            get {
+                return ResourceManager.GetString("Trang quản trị", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trao cơ hội kết nối ước mơ.
         /// </summary>
         public static string Trao_cơ_hội_kết_nối_ước_mơ {
             get {
                 return ResourceManager.GetString("Trao cơ hội kết nối ước mơ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trên 10Tr.
+        /// </summary>
+        public static string Trên_10Tr {
+            get {
+                return ResourceManager.GetString("Trên 10Tr", resourceCulture);
             }
         }
         
@@ -216,11 +432,38 @@ namespace DoAnTotNghiep.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ứng viên tiềm năng.
+        /// </summary>
+        public static string Ứng_viên_tiềm_năng {
+            get {
+                return ResourceManager.GetString("Ứng viên tiềm năng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vị trí tuyển dụng.
+        /// </summary>
+        public static string Vị_trí_tuyển_dụng {
+            get {
+                return ResourceManager.GetString("Vị trí tuyển dụng", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vô Vàn Cơ Hội Đang Chờ Bạn.
         /// </summary>
         public static string Vô_Vàn_Cơ_Hội_Đang_Chờ_Bạn {
             get {
                 return ResourceManager.GetString("Vô Vàn Cơ Hội Đang Chờ Bạn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xem tất cả.
+        /// </summary>
+        public static string Xem_tất_cả {
+            get {
+                return ResourceManager.GetString("Xem tất cả", resourceCulture);
             }
         }
     }

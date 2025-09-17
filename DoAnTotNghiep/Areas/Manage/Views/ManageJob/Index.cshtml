@@ -4,11 +4,16 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Manage/Views/Shared/_AdminLayout.cshtml";
 }
+
+@{
+    int stt = 1;
+}
 <h2>Quản lý Tin tuyển dụng</h2>
 
 <table class="table table-bordered">
     <thead>
         <tr>
+            <th>STT</th>
             <th>Tiêu đề</th>
             <th>Công ty</th>
             <th>Vị trí</th>
@@ -20,6 +25,7 @@
         @foreach (var job in Model)
         {
             <tr>
+                <td>@stt</td>
                 <td>@job.Title</td>
                 <td>
                  @job.Employer.CompanyName
@@ -38,8 +44,12 @@
                     <a href="@Url.Action("Details", "ManageJob", new { @id = job.JobPostingID })" class="btn btn-info">
                         Chi tiết
                     </a>
+                    <a href="@Url.Action("Details", "ManageJob", new { @id = job.JobPostingID })" class="btn btn-info">
+                        Duyệt
+                    </a>
                 </td>
             </tr>
+            stt++;
         }
     </tbody>
 </table>

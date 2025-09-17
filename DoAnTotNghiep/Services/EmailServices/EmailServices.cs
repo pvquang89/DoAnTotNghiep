@@ -9,9 +9,9 @@ namespace DoAnTotNghiep.Services.EmailServices
         public async Task SendEmailAsync(string email, string content)
         {
             var message = new MimeMessage();
-            message.From.Add(MailboxAddress.Parse("nguyenvietgiang1110@gmail.com"));
+            message.From.Add(MailboxAddress.Parse("phamvanquang12042002@gmail.com"));
             message.To.Add(MailboxAddress.Parse(email));
-            message.Subject = "Job Finder";
+            message.Subject = "Jobs4U Hub";
             var bodyBuilder = new BodyBuilder();
             bodyBuilder.HtmlBody = $@"
                 <html>
@@ -51,17 +51,17 @@ namespace DoAnTotNghiep.Services.EmailServices
                     <body>
                         <div class=""container"">
                         <div class=""header"">
-                         <img src=""https://themewagon.github.io/jobfinderportal/assets/img/logo/logo.png"" alt=""JobFinder"" class=""logo"">
+                         <img src=""https://drive.google.com/uc?id=1w05qYdsZiujYnj6DPUN95xgUARLS4LQn"" alt=""Jobs4UHub"" class=""logo"">
                         </div>
                             <div class=""content"">
                                 <p>Xin chào!</p>
-                                <p>Chúng tôi là đội ngũ phát triển của Job Finder.</p>
+                                <p>Chúng tôi là đội ngũ phát triển của Jobs4U Hub.</p>
                                 <p>{content}</p>
                                 <p>Chúc bạn một ngày mới tốt lành!</p>
                             </div>
                             <div class=""footer"">
                                 <p>Best Regast,</p>
-                                <p>Nguyễn Việt Giang</p>
+                                <p>Phạm Văn Quang</p>
                             </div>
                         </div>
                     </body>
@@ -70,12 +70,12 @@ namespace DoAnTotNghiep.Services.EmailServices
             using (var client = new SmtpClient("smtp.gmail.com"))
             {
                 client.Port = 587;
-                client.Credentials = new NetworkCredential("nguyenvietgiang1110@gmail.com", "kholeeizbmxzykbs");
-                client.EnableSsl = true;
+                client.Credentials = new NetworkCredential("phamvanquang12042002@gmail.com", "vsbjvwmblsjmhphk");
+                client.EnableSsl = true; 
 
                 await client.SendMailAsync(new MailMessage
                 {
-                    From = new MailAddress("nguyenvietgiang1110@gmail.com"),
+                    From = new MailAddress("phamvanquang12042002@gmail.com"),
                     Subject = "Thông báo",
                     Body = bodyBuilder.HtmlBody,
                     IsBodyHtml = true,

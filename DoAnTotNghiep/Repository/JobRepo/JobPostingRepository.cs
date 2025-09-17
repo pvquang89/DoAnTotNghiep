@@ -15,7 +15,9 @@ namespace DoAnTotNghiep.Repository.JobRepo
 
         public async Task<IEnumerable<JobPosting>> GetAllJobPostingsAsync()
         {
-            return await _context.JobPostings.Include(jp => jp.Employer).ToListAsync();
+            return await _context.JobPostings.Include(jp => jp.Employer)
+                .OrderByDescending(jp=>jp.CreateAt)
+                .ToListAsync();
         }
 
         public async Task<JobPosting> GetJobPostingByIdAsync(Guid id)
@@ -173,6 +175,8 @@ namespace DoAnTotNghiep.Repository.JobRepo
 
             return query;
         }
+
+
 
         public async Task<List<JobPosting>> GetJobPostingsByApplicantEmailAsync(string applicantEmail)
         {

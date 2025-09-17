@@ -117,8 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="5Tr - 10Tr" xml:space="preserve">
+    <value>5Tr - 10Tr</value>
+  </data>
+  <data name="Bài viết thảo luận" xml:space="preserve">
+    <value>Bài viết thảo luận</value>
+  </data>
+  <data name="Báo cáo thống kê" xml:space="preserve">
+    <value>Báo cáo thống kê</value>
+  </data>
   <data name="Chúng Tôi Đem Lại Cơ Hội Thăng Tiến" xml:space="preserve">
     <value>Chúng Tôi Đem Lại Cơ Hội Thăng Tiến</value>
+  </data>
+  <data name="Chọn Địa Điểm" xml:space="preserve">
+    <value>Chọn Địa Điểm</value>
+  </data>
+  <data name="Cơ hội nghề nghiệp" xml:space="preserve">
+    <value>Cơ hội nghề nghiệp</value>
   </data>
   <data name="Danh sách" xml:space="preserve">
     <value>Danh sách</value>
@@ -126,29 +141,62 @@
   <data name="Danh sách công ty" xml:space="preserve">
     <value>Danh sách công ty</value>
   </data>
+  <data name="Danh sách tuyển dụng" xml:space="preserve">
+    <value>Danh sách tuyển dụng</value>
+  </data>
   <data name="Danh sách ứng viên" xml:space="preserve">
     <value>Danh sách ứng viên</value>
   </data>
   <data name="Diễn đàn" xml:space="preserve">
     <value>Diễn đàn</value>
   </data>
+  <data name="Doanh nghiệp cộng tác" xml:space="preserve">
+    <value>Doanh nghiệp cộng tác</value>
+  </data>
+  <data name="Hà Nội" xml:space="preserve">
+    <value>Hà Nội</value>
+  </data>
+  <data name="Khảo sát" xml:space="preserve">
+    <value>Khảo sát</value>
+  </data>
   <data name="Liên hệ" xml:space="preserve">
     <value>Liên hệ</value>
+  </data>
+  <data name="Liên hệ với chúng tôi tại" xml:space="preserve">
+    <value>Liên hệ với chúng tôi tại</value>
+  </data>
+  <data name="Lương cơ bản" xml:space="preserve">
+    <value>Lương cơ bản</value>
   </data>
   <data name="Mọi thông tin về điều khoản và chính sách của chúng tôi xin vui lòng tham khảo thông qua Chat bot hoặc:" xml:space="preserve">
     <value>Mọi thông tin về điều khoản và chính sách của chúng tôi xin vui lòng tham khảo thông qua Chat bot hoặc:</value>
   </data>
-  <data name="Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : vietgiang111001@gmail.com" xml:space="preserve">
-    <value>Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : vietgiang111001@gmail.com</value>
+  <data name="Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : phamvanquang@gmail.com" xml:space="preserve">
+    <value>Mọi thắc mắc hoặc vấn đề cần giải quyết xin vui lòng gửi về tại form liên hệ hoặc thông qua email : phamvanquang@gmail.com</value>
   </data>
   <data name="Số lượng người đang truy cập:" xml:space="preserve">
     <value>Số lượng người đang truy cập:</value>
   </data>
+  <data name="Thông tin doanh nghiệp" xml:space="preserve">
+    <value>Thông tin doanh nghiệp</value>
+  </data>
+  <data name="Thời gian làm" xml:space="preserve">
+    <value>Thời gian làm</value>
+  </data>
+  <data name="TP. HCM" xml:space="preserve">
+    <value>TP. HCM</value>
+  </data>
   <data name="Trang chủ" xml:space="preserve">
     <value>Trang chủ</value>
   </data>
+  <data name="Trang quản trị" xml:space="preserve">
+    <value>Trang quản trị</value>
+  </data>
   <data name="Trao cơ hội kết nối ước mơ" xml:space="preserve">
     <value>Trao cơ hội kết nối ước mơ</value>
+  </data>
+  <data name="Trên 10Tr" xml:space="preserve">
+    <value>Trên 10Tr</value>
   </data>
   <data name="Tuyển dụng" xml:space="preserve">
     <value>Tuyển dụng</value>
@@ -156,11 +204,29 @@
   <data name="Tìm Kiếm" xml:space="preserve">
     <value>Tìm Kiếm</value>
   </data>
+  <data name="Tìm kiếm việc làm" xml:space="preserve">
+    <value>Tìm kiếm việc làm</value>
+  </data>
   <data name="Tại Đây" xml:space="preserve">
     <value>Tại Đây</value>
   </data>
+  <data name="Tất cả" xml:space="preserve">
+    <value>Tất cả</value>
+  </data>
+  <data name="Tất cả công việc" xml:space="preserve">
+    <value>Tất cả công việc</value>
+  </data>
   <data name="Vô Vàn Cơ Hội Đang Chờ Bạn" xml:space="preserve">
     <value>Vô Vàn Cơ Hội Đang Chờ Bạn</value>
+  </data>
+  <data name="Vị trí tuyển dụng" xml:space="preserve">
+    <value>Vị trí tuyển dụng</value>
+  </data>
+  <data name="Xem tất cả" xml:space="preserve">
+    <value>Xem tất cả</value>
+  </data>
+  <data name="Đà Nẵng" xml:space="preserve">
+    <value>Đà Nẵng</value>
   </data>
   <data name="Đăng ký" xml:space="preserve">
     <value>Đăng ký</value>
@@ -168,7 +234,22 @@
   <data name="Đăng nhập" xml:space="preserve">
     <value>Đăng nhập</value>
   </data>
-  <data name="Đồ Án Tốt Nghiệp 2024" xml:space="preserve">
-    <value>Đồ Án Tốt Nghiệp 2024</value>
+  <data name="Đăng xuất" xml:space="preserve">
+    <value>Đăng xuất</value>
+  </data>
+  <data name="Địa chỉ" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="Địa Điểm Làm Việc" xml:space="preserve">
+    <value>Địa Điểm Làm Việc</value>
+  </data>
+  <data name="Đồ Án Tốt Nghiệp 2025" xml:space="preserve">
+    <value>Đồ Án Tốt Nghiệp 2025</value>
+  </data>
+  <data name="Đổi mật khẩu" xml:space="preserve">
+    <value>Đổi mật khẩu</value>
+  </data>
+  <data name="Ứng viên tiềm năng" xml:space="preserve">
+    <value>Ứng viên tiềm năng</value>
   </data>
 </root>

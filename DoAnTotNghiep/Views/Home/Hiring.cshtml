@@ -1,38 +1,43 @@
 ﻿@model IEnumerable<DoAnTotNghiep.Models.EntityModels.JobPosting>
 
 @{
-    ViewData["Title"] = "Danh sách tuyển dụng";
+    ViewData["Title"] = @DoAnTotNghiep.Resource.Language.Danh_sách_tuyển_dụng;
+}
+@{
+    string language = ViewContext.RouteData.Values["language"].ToString();
+    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+    Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
 }
 
 <div class="container mt-3">
-    <h3>@ViewData["TitleJob"] (@ViewData["JobCount"])</h3>
+    @* <h3>@ViewData["TitleJob"] (@ViewData["JobCount"])</h3> *@
     <form asp-action="Hiring" method="get">
         <div class="form-row align-items-end">
             <div class="form-group col-md-3">
-                <input type="text" class="form-control" name="title" placeholder="Tìm kiếm việc làm" />
+                <input type="text" class="form-control" name="title" placeholder="@DoAnTotNghiep.Resource.Language.Tìm_kiếm_việc_làm" />
             </div>
             <div class="form-group col-md-2">
                 <select class="form-control" name="location">
-                    <option value="">--Chọn Địa Điểm--</option>
-                    <option value="Hà Nội">Hà Nội</option>
-                    <option value="Đà Nẵng">Đà Nẵng</option>
-                    <option value="TP. HCM">TP. HCM</option>
+                    <option value="">--@DoAnTotNghiep.Resource.Language.Chọn_Địa_Điểm--</option>
+                    <option value="Hà Nội">@DoAnTotNghiep.Resource.Language.Hà_Nội</option>
+                    <option value="Đà Nẵng">@DoAnTotNghiep.Resource.Language.Đà_Nẵng</option>
+                    <option value="TP. HCM">@DoAnTotNghiep.Resource.Language.TP__HCM</option>
                 </select>
             </div>
-            <div class="form-group col-md-2">
+ @*            <div class="form-group col-md-2">
                 <select class="form-control" name="salary">
-                    <option value="">--Lương Cơ Bản--</option>
-                    <option value="5000">5Tr - 10Tr</option>
-                    <option value="10000">Trên 10Tr</option>
+                    <option value="">--@DoAnTotNghiep.Resource.Language.Lương_cơ_bản--</option>
+                    <option value="5000000">@DoAnTotNghiep.Resource.Language._5Tr___10Tr</option>
+                    <option value="10000000">@DoAnTotNghiep.Resource.Language.Trên_10Tr</option>
                 </select>
             </div>
             <div class="form-group col-md-2">
                 <select class="form-control" name="time">
-                    <option value="">--Thời Gian Làm--</option>
+                    <option value="">--@DoAnTotNghiep.Resource.Language.Thời_gian_làm--</option>
                     <option value="Full Time">Full Time</option>
                     <option value="Part Time">Part Time</option>
                 </select>
-            </div>
+            </div> *@
 
             <div class="form-group col-md-3">
                 <button type="submit" class="genric-btn success medium mt-2 form-control"><i class="fas fa-search"></i></button>
@@ -55,9 +60,9 @@
                             <h4>@job.Title</h4>
                         </a>
                         <ul>
-                            <li>Vị Trí Tuyển Dụng: @job.position</li>
-                            <li>Địa Điểm Làm Việc: @job.Location</li>
-                            <li>Mức Lương Cơ Bản: @job.Salary VND</li>
+                            <li>@DoAnTotNghiep.Resource.Language.Vị_trí_tuyển_dụng: @job.position</li>
+                            <li>@DoAnTotNghiep.Resource.Language.Địa_chỉ: @job.Location</li>
+                            <li>@DoAnTotNghiep.Resource.Language.Lương_cơ_bản: @job.Salary VND</li>
                         </ul>
                     </div>
                 </div>
